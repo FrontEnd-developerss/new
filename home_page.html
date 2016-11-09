@@ -1,0 +1,125 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+		<link rel="stylesheet" href="css/login.css">
+		<script src="scripts/myjquery_main.js"></script>
+    <script src="scripts/jquery_reg.js"></script>
+		<title>Login</title>
+	</head>
+	<body>
+		<div class="jumbotron text-center">
+			<h1>Welcome to Quiz Portal</h1>
+		</div>
+		<div class="container col-lg-10 col-lg-offset-1">
+    <div class="container text-right">
+      <h3 id="session">,</h3>&emsp;<a href="login.html" id="sign_out">Sign out</a>
+      </div>
+  <ul class="nav nav-pills nav-justified">
+    <li class="active col-lg-2 col-lg-offset-5"><a data-toggle="tab" href="#home" class="btn">Admin Registration</a></li>
+    <li class="col-lg-2 col-lg-offset-5"><a data-toggle="tab" href="#menu1" class="btn">Student Registration</a></li>
+    <li class="col-lg-2 col-lg-offset-5"><a data-toggle="tab" href="#menu2" class="btn disabled">Admin Quiz Page</a></li>
+    <li class="col-lg-2 col-lg-offset-5"><a data-toggle="tab" href="#menu3" class="btn disabled">Student Quiz Page</a></li>
+  </ul>
+
+  <div class="tab-content">
+    <div id="home" class="tab-pane fade in active">
+    <h3>Registration(admin)</h3>
+        <form>
+          <div class="form-group" id="reg_name">
+            <label for="name">Name:</label>
+            <input id="s_name" type="text" class="form-control" placeholder="enter your name" data-toggle="tooltip" title="enter your name" required><p id="valid"></p>
+          </div>
+          <div class="form-group" id="reg_dob">
+            <label for="date">Date of Birth:</label>
+            <input id="s_dob" type="date" class="form-control" data-toggle="tooltip" title="select your Date of Birth" required>
+          </div>
+          <div class="form-group">
+            <label for="age">Age (in years):</label>
+            <input id="s_age" class="form-control" disabled>
+          </div>
+          <div class="form-group" id="reg_mailid">
+            <label for="mailid">Email ID:</label>
+            <input id="s_mailid" type="email" class="form-control" placeholder="someone@gmail.com" data-toggle="tooltip" title="enter your mail ID" required><p id="valid1"></p>
+          </div>
+          <label>Role:</label>
+          <div class="radio">
+           <label><input type="radio" name="role" value="admin" checked disabled>Admin</label>
+             <label><input type="radio" name="role" value="student" disabled>Student</label>
+            </div>
+          <div class="form-group-inline">
+            <button type="submit" class="btn btn-primary" data-toggle="tooltip"  title="submit the form" id="admin_submit">SUBMIT</button>
+            <button type="reset" class="btn btn-default" id="reg_reset" data-toggle="tooltip"  title="reset entered values">RESET</button>
+          </div>
+    </div>
+    <div id="menu1" class="tab-pane fade">
+       <h3>Registration(student)</h3>
+      <form>
+          <div class="form-group">
+            <label for="name">Name:</label>
+            <input id="s1_name" type="text" class="form-control" placeholder="enter your name">
+          </div>
+          <div class="form-group">
+            <label for="date">Date of Birth:</label>
+            <input id="s1_dob" type="date" class="form-control">
+          </div>
+          <div class="form-group">
+            <label for="age">Age (in years):</label>
+            <input id="s1_age" class="form-control" disabled>
+          </div>
+          <div class="form-group">
+            <label for="mailid">Email ID:</label>
+            <input id="s1_mailid" type="email" class="form-control" placeholder="someone@gmail.com">
+          </div>
+           <label>Role:</label>
+          <div class="radio">
+           <label><input type="radio" name="role1" value="admin"  disabled>Admin</label>
+             <label><input type="radio" name="role1" value="student" checked disabled>Student</label>
+            </div>
+          <div class="form-group-inline">
+            <button type="submit" class="btn btn-primary" disabled>SUBMIT</button>
+            <button type="reset" class="btn btn-default">RESET</button>
+          </div>
+      </form>
+    </div>
+    <div id="menu2" class="tab-pane fade">
+      <h3>Update Quiz</h3>
+       <form>
+        
+         <div class="form-group"><label for="subject">List of Subjects:</label>
+        <select class="form-control appendlist" id="admin_select" onchange="check_form()"> <option value="Maths">Maths</option> <option value="Science">Science
+        </option> <option value="Social">Social</option> <option value="General Knowledge">General Knowledge</option> </select>
+          </div>
+          <div class="form-group">
+            <label for="update">Add Subjects to Quiz:</label>
+            <input type="text" class="form-control" id="new_subject" placeholder="enter name of subject to add">
+          </div>
+          <div class="form-group">
+            <button type="submit" class="btn btn-primary" id="admin_quiz_submit">SUBMIT</button>
+            <button type="reset" class="btn btn-default">RESET</button>
+          </div>
+      </form>
+    </div>
+    <div id="menu3" class="tab-pane fade">
+       <h3>Attend Quiz</h3>
+       <form>
+         <div class="form-group"><label for="subject_student">
+        Select Interested Subjects:</label> <select multiple name="myOption" onchange="check_form()" class="form-control appendmultilist" id="student_select">
+        <option value="Maths">Maths</option> <option value="Science">Science</option> <option value="Social">Social</option> <option value="General Knowledge">General Knowledge
+        </option> </select> </div>
+
+          <div class="form-group">
+            <button type="submit" class="btn btn-primary">SUBMIT</button>
+            <button type="reset" class="btn btn-default">RESET</button>
+          </div>
+      </form>
+    </div>
+  </div>
+</div>
+	</body>
+</html>
