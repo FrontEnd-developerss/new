@@ -1,0 +1,25 @@
+#submit_form {
+	margin-right: 10px;
+	margin-bottom: 30px;
+}
+#valid {
+	color:red;
+	display:none;
+}
+#pass_valid {
+	color:red;
+	display:none;
+}
+li {
+	text-align: center;
+}
+#valid1 {
+	color:red;
+	display:none;
+}
+#signout,#session {
+	display: inline;
+}
+#sess {
+	margin-left:800px;
+}
