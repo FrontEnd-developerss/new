@@ -12,7 +12,7 @@
 		<title>Login</title>
 	</head>
 	<body>
-		<div class="jumbotron text-center">
+		<div class="jumbotron text-center" id="start">
 			<h1>Welcome to Quiz Portal</h1>
 		</div>
 		<div class="container">
@@ -23,11 +23,14 @@
 
 				<div class="form-control-group col-lg-6 col-lg-offset-3" id="password_div"><label for="password">Password:</label>
 				<input type="password" class="form-control" id="password" data-toggle="tooltip" title="enter your password" placeholder="Enter your password" required><p id="pass_valid">Invalid password</p> <span class="help-block">
-				Password should have atleast one special character, one number and mixed-case.</span>
+				Password should have atleast one special character, one number and mixed-case.
+				Submit button will only be enabled if you enter valid credentials</span>
 				</div>
 				<div class="form-control-group-inline col-lg-6 col-lg-offset-3">
 				<button id="submit_form" type="submit" class="btn btn-primary col-xs-3" data-toggle="tooltip" data-placement="bottom" title="Submit the form" disabled>Submit</button>
 				<button type="reset" id="reset_form" class="btn btn-default col-xs-3" data-toggle="tooltip" data-placement="bottom" title="reset entered values">Reset</button>
+				<div id="space">
+				<label for="new user">&emsp;New User ?&emsp;</label><a href="registration.html" data-toggle="tooltip" title="Sign up">Register</a></div>
 				</div>
 			</form>
 		</div>
